@@ -14,4 +14,3 @@ export default defineConfig({
   routes: routes,
   npmClient: 'yarn',
 });
-
