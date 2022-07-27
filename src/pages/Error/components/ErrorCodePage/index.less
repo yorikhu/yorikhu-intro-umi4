@@ -18,321 +18,322 @@
   padding: 0;
   height: auto;
   background: @bg-01;
-}
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 55px);
-  overflow-x: hidden;
-
-  .container {
-    margin: 0 auto;
-    transition: all 0.4s ease;
-    display: flex;
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
-    position: relative;
+    height: calc(100vh - 55px);
+    overflow-x: hidden;
 
-    // Scene for the Parallax Effect
-    .scene {
-      position: absolute;
-      overflow: hidden;
-      width: 100vw;
-      height: calc(100vh - 55px);
-    }
-
-    .operation {
-      width: 60%;
-      height: 40%;
-      min-width: 400px;
-      min-height: 500px;
-      position: absolute;
-      margin: 40px 0;
-      animation: text 0.6s 1.8s ease backwards;
-
-      @keyframes text {
-        0% {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-      }
-
-      article {
-        width: 400px;
-        position: absolute;
-        bottom: 0;
-        z-index: 4;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        left: 50%;
-        transform: translateX(-50%);
-
-        p {
-          color: @m-01;
-          font-size: 24px;
-          letter-spacing: 0.6px;
-          margin-bottom: 40px;
-          text-shadow: 6px 6px 10px @bg-03;
-        }
-
-        button {
-          height: 40px;
-          padding: 0 30px;
-          border-radius: 50px;
-          cursor: pointer;
-          box-shadow: 0 15px 20px rgba(@bg-02 0.5);
-          z-index: 3;
-          color: @m-01;
-          background-color: white;
-          text-transform: uppercase;
-          font-weight: 600;
-          font-size: 12px;
-          transition: all 0.3s ease;
-
-          &:hover {
-            box-shadow: 0 10px 10px -10px rgba(@bg-02 0.5);
-            transform: translateY(5px);
-            background: @m-01;
-            border-color: @m-01;
-            color: white;
-          }
-
-          &:focus {
-            border: #d9d9d9;
-          }
-        }
-      }
-    }
-
-    // All elements' containers
-    .one,
-    .two,
-    .three,
-    .circle,
-    .p-error-code {
-      .content {
-        width: 600px;
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: content 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
-
-        @keyframes content {
-          0% {
-            width: 0;
-          }
-        }
-
-        // Pieces
-        .piece {
-          width: 200px;
-          height: 80px;
-          display: flex;
-          position: absolute;
-          border-radius: 80px;
-          z-index: 1;
-          animation: piece-left 8s cubic-bezier(1, 0.06, 0.25, 1) infinite both;
-
-          @keyframes piece-left {
-            50% {
-              left: 80%;
-              width: 10%;
-            }
-          }
-
-          @keyframes piece-right {
-            50% {
-              right: 80%;
-              width: 10%;
-            }
-          }
-        }
-      }
-    }
-
-    // The Error Code
-    .p-error-code {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 140px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: @m-01;
-      display: flex !important;
+    .container {
+      margin: 0 auto;
+      transition: all 0.4s ease;
+      display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 2;
-      animation: anime-error 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
-      animation-delay: 1.2s;
+      position: relative;
 
-      @keyframes anime-error {
-        0% {
-          opacity: 0;
-          transform: scale(10) skew(20deg, 20deg);
-        }
+      // Scene for the Parallax Effect
+      .scene {
+        position: absolute;
+        overflow: hidden;
+        width: 100vw;
+        height: calc(100vh - 55px);
       }
 
-      &:nth-of-type(2) {
-        color: @bg-02;
-        z-index: 1;
-        animation-delay: 1s;
-        filter: blur(10px);
-        opacity: 0.8;
-      }
-    }
+      .operation {
+        width: 60%;
+        height: 40%;
+        min-width: 400px;
+        min-height: 500px;
+        position: absolute;
+        margin: 40px 0;
+        animation: text 0.6s 1.8s ease backwards;
 
-    .piece {
-      opacity: 0.4;
-    }
-
-    // Cloudy 1
-    .one {
-      .content {
-        @keyframes circle {
+        @keyframes text {
           0% {
-            width: 0;
-            height: 0;
+            opacity: 0;
+            transform: translateY(40px);
           }
         }
-        // Bigger Circle
-        &::before {
-          content: '';
+
+        article {
+          width: 400px;
+          position: absolute;
+          bottom: 0;
+          z-index: 4;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          left: 50%;
+          transform: translateX(-50%);
+
+          p {
+            color: @m-01;
+            font-size: 24px;
+            letter-spacing: 0.6px;
+            margin-bottom: 40px;
+            text-shadow: 6px 6px 10px @bg-03;
+          }
+
+          button {
+            height: 40px;
+            padding: 0 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 20px rgba(@bg-02 0.5);
+            z-index: 3;
+            color: @m-01;
+            background-color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              box-shadow: 0 10px 10px -10px rgba(@bg-02 0.5);
+              transform: translateY(5px);
+              background: @m-01;
+              border-color: @m-01;
+              color: white;
+            }
+
+            &:focus {
+              border: #d9d9d9;
+            }
+          }
+        }
+      }
+
+      // All elements' containers
+      .one,
+      .two,
+      .three,
+      .circle,
+      .p-error-code {
+        .content {
+          width: 600px;
+          height: 600px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 600px;
-          height: 600px;
-          background-color: rgba(@bg-02 0.2);
-          border-radius: 100%;
-          box-shadow: @circleShadow;
-          animation: circle 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
-        }
-        // Smaller Circle
-        &::after {
-          content: '';
-          position: absolute;
-          width: 400px;
-          height: 400px;
-          background-color: rgba(@bg-02 0.3);
-          border-radius: 100%;
-          box-shadow: @circleShadow;
-          animation: circle 0.8s 0.4s cubic-bezier(1, 0.06, 0.25, 1) backwards;
-        }
+          animation: content 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
 
-        .piece {
-          background: @g-01;
-
-          &:nth-child(1) {
-            right: 15%;
-            top: 18%;
-            height: 20px;
-            width: 120px;
-            animation-delay: 0.5s;
-            animation-name: piece-right;
+          @keyframes content {
+            0% {
+              width: 0;
+            }
           }
 
-          &:nth-child(2) {
-            left: 15%;
-            top: 45%;
-            width: 130px;
-            height: 30px;
-            animation-delay: 1s;
-            animation-name: piece-left;
-          }
+          // Pieces
+          .piece {
+            width: 200px;
+            height: 80px;
+            display: flex;
+            position: absolute;
+            border-radius: 80px;
+            z-index: 1;
+            animation: piece-left 8s cubic-bezier(1, 0.06, 0.25, 1) infinite
+              both;
 
-          &:nth-child(3) {
-            left: 10%;
-            top: 75%;
-            height: 22px;
-            width: 100px;
-            animation-delay: 1.5s;
-            animation-name: piece-left;
+            @keyframes piece-left {
+              50% {
+                left: 80%;
+                width: 10%;
+              }
+            }
+
+            @keyframes piece-right {
+              50% {
+                right: 80%;
+                width: 10%;
+              }
+            }
           }
         }
       }
-    }
 
-    // Cloudy 2
-    .two {
-      .content {
-        .piece {
-          background: @g-01;
+      // The Error Code
+      .p-error-code {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 140px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: @m-01;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        animation: anime-error 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
+        animation-delay: 1.2s;
 
-          &:nth-child(1) {
-            left: 0%;
-            top: 25%;
-            height: 30px;
-            width: 140px;
-            animation-delay: 2s;
-            animation-name: piece-left;
+        @keyframes anime-error {
+          0% {
+            opacity: 0;
+            transform: scale(10) skew(20deg, 20deg);
+          }
+        }
+
+        &:nth-of-type(2) {
+          color: @bg-02;
+          z-index: 1;
+          animation-delay: 1s;
+          filter: blur(10px);
+          opacity: 0.8;
+        }
+      }
+
+      .piece {
+        opacity: 0.4;
+      }
+
+      // Cloudy 1
+      .one {
+        .content {
+          @keyframes circle {
+            0% {
+              width: 0;
+              height: 0;
+            }
+          }
+          // Bigger Circle
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-color: rgba(@bg-02 0.2);
+            border-radius: 100%;
+            box-shadow: @circleShadow;
+            animation: circle 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+          }
+          // Smaller Circle
+          &::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(@bg-02 0.3);
+            border-radius: 100%;
+            box-shadow: @circleShadow;
+            animation: circle 0.8s 0.4s cubic-bezier(1, 0.06, 0.25, 1) backwards;
           }
 
-          &:nth-child(2) {
-            right: 15%;
-            top: 35%;
-            width: 180px;
-            height: 30px;
-            animation-delay: 2.5s;
-            animation-name: piece-right;
-          }
+          .piece {
+            background: @g-01;
 
-          &:nth-child(3) {
-            right: 10%;
-            top: 80%;
-            height: 20px;
-            width: 120px;
-            animation-delay: 3s;
-            animation-name: piece-right;
+            &:nth-child(1) {
+              right: 15%;
+              top: 18%;
+              height: 20px;
+              width: 120px;
+              animation-delay: 0.5s;
+              animation-name: piece-right;
+            }
+
+            &:nth-child(2) {
+              left: 15%;
+              top: 45%;
+              width: 130px;
+              height: 30px;
+              animation-delay: 1s;
+              animation-name: piece-left;
+            }
+
+            &:nth-child(3) {
+              left: 10%;
+              top: 75%;
+              height: 22px;
+              width: 100px;
+              animation-delay: 1.5s;
+              animation-name: piece-left;
+            }
           }
         }
       }
-    }
 
-    // Cloudy 3
-    .three {
-      .content {
-        .piece {
-          background: @g-01;
+      // Cloudy 2
+      .two {
+        .content {
+          .piece {
+            background: @g-01;
 
-          &:nth-child(1) {
-            left: 25%;
-            top: 35%;
-            height: 20px;
-            width: 100px;
-            animation-name: piece-left;
-            animation-delay: 3.5s;
+            &:nth-child(1) {
+              left: 0%;
+              top: 25%;
+              height: 30px;
+              width: 140px;
+              animation-delay: 2s;
+              animation-name: piece-left;
+            }
+
+            &:nth-child(2) {
+              right: 15%;
+              top: 35%;
+              width: 180px;
+              height: 30px;
+              animation-delay: 2.5s;
+              animation-name: piece-right;
+            }
+
+            &:nth-child(3) {
+              right: 10%;
+              top: 80%;
+              height: 20px;
+              width: 120px;
+              animation-delay: 3s;
+              animation-name: piece-right;
+            }
           }
+        }
+      }
 
-          &:nth-child(2) {
-            right: 10%;
-            top: 55%;
-            width: 90px;
-            height: 30px;
-            animation-name: piece-right;
-            animation-delay: 4s;
-          }
+      // Cloudy 3
+      .three {
+        .content {
+          .piece {
+            background: @g-01;
 
-          &:nth-child(3) {
-            left: 40%;
-            top: 68%;
-            height: 24px;
-            width: 90px;
-            animation-name: piece-left;
-            animation-delay: 4.5s;
+            &:nth-child(1) {
+              left: 25%;
+              top: 35%;
+              height: 20px;
+              width: 100px;
+              animation-name: piece-left;
+              animation-delay: 3.5s;
+            }
+
+            &:nth-child(2) {
+              right: 10%;
+              top: 55%;
+              width: 90px;
+              height: 30px;
+              animation-name: piece-right;
+              animation-delay: 4s;
+            }
+
+            &:nth-child(3) {
+              left: 40%;
+              top: 68%;
+              height: 24px;
+              width: 90px;
+              animation-name: piece-left;
+              animation-delay: 4.5s;
+            }
           }
         }
       }
