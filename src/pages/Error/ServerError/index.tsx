@@ -1,12 +1,12 @@
 import ErrorCodePage from '../components/ErrorCodePage';
 
-const NotFound: React.FC = () => {
+const ServerError: React.FC = () => {
   const errorCodePageConfig = {
-    errorCode: '404',
-    errorText: '抱歉，你访问的页面不存在',
+    errorCode: '500',
+    errorText: '抱歉，服务器出错了',
     homeUrl: '/home',
   };
   return <ErrorCodePage {...errorCodePageConfig} />;
 };
 
-export default NotFound;
+export default ServerError;
