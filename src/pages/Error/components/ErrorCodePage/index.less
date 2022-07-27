@@ -1,10 +1,10 @@
+@m-01: #545454;
+
 @bg-01: #ffffff;
 @bg-02: #767676;
 @bg-03: #484848;
 
 @g-01: linear-gradient(90deg, #cccccc 0%, #888888 100%);
-@g-02: linear-gradient(90deg, #cccccc 0%, #888888 100%);
-@g-03: linear-gradient(90deg, #cccccc 0%, #888888 100%);
 
 @cubic: cubic-bezier(0.4, 0.35, 0, 1.53);
 @cubic2: cubic-bezier(0.18, 0.89, 0.32, 1.15);
@@ -74,7 +74,7 @@
         transform: translateX(-50%);
 
         p {
-          color: rgb(84 84 84);
+          color: @m-01;
           font-size: 24px;
           letter-spacing: 0.6px;
           margin-bottom: 40px;
@@ -88,7 +88,7 @@
           cursor: pointer;
           box-shadow: 0 15px 20px rgba(@bg-02 0.5);
           z-index: 3;
-          color: rgb(84 84 84);
+          color: @m-01;
           background-color: white;
           text-transform: uppercase;
           font-weight: 600;
@@ -98,9 +98,13 @@
           &:hover {
             box-shadow: 0 10px 10px -10px rgba(@bg-02 0.5);
             transform: translateY(5px);
-            background: rgb(84 84 84);
-            border-color: rgb(84 84 84);
+            background: @m-01;
+            border-color: @m-01;
             color: white;
+          }
+
+          &:focus {
+            border: #d9d9d9;
           }
         }
       }
@@ -111,14 +115,7 @@
     .two,
     .three,
     .circle,
-    .p404 {
-      width: 60%;
-      height: 60%;
-      top: 20% !important;
-      left: 20% !important;
-      min-width: 400px;
-      min-height: 400px;
-
+    .p-error-code {
       .content {
         width: 600px;
         height: 600px;
@@ -164,21 +161,24 @@
       }
     }
 
-    // The 404 Number
-    .p404 {
+    // The Error Code
+    .p-error-code {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-size: 140px;
       font-weight: 700;
       letter-spacing: 4px;
-      color: rgb(84 84 84);
+      color: @m-01;
       display: flex !important;
       justify-content: center;
       align-items: center;
-      position: absolute;
       z-index: 2;
-      animation: anime404 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
+      animation: anime-error 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
       animation-delay: 1.2s;
 
-      @keyframes anime404 {
+      @keyframes anime-error {
         0% {
           opacity: 0;
           transform: scale(10) skew(20deg, 20deg);
@@ -194,32 +194,6 @@
       }
     }
 
-    // Bigger Circle
-    .circle {
-      position: absolute;
-
-      &::before {
-        content: '';
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background-color: rgba(@bg-02 0.2);
-        border-radius: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: @circleShadow;
-        animation: circle 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
-
-        @keyframes circle {
-          0% {
-            width: 0;
-            height: 0;
-          }
-        }
-      }
-    }
-
     .piece {
       opacity: 0.4;
     }
@@ -227,8 +201,28 @@
     // Cloudy 1
     .one {
       .content {
-        // Smaller Circle
+        @keyframes circle {
+          0% {
+            width: 0;
+            height: 0;
+          }
+        }
+        // Bigger Circle
         &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 600px;
+          height: 600px;
+          background-color: rgba(@bg-02 0.2);
+          border-radius: 100%;
+          box-shadow: @circleShadow;
+          animation: circle 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+        }
+        // Smaller Circle
+        &::after {
           content: '';
           position: absolute;
           width: 400px;
@@ -240,7 +234,7 @@
         }
 
         .piece {
-          background: @g-02;
+          background: @g-01;
 
           &:nth-child(1) {
             right: 15%;
@@ -312,7 +306,7 @@
     .three {
       .content {
         .piece {
-          background: @g-03;
+          background: @g-01;
 
           &:nth-child(1) {
             left: 25%;
