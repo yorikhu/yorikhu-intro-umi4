@@ -9,6 +9,13 @@ export const routes = [
     component: './Home',
   },
   {
+    name: '登陆',
+    path: '/login',
+    component: './Login',
+    headerRender: false,
+    hideInMenu: true,
+  },
+  {
     name: '错误页面',
     path: '/error',
     routes: [

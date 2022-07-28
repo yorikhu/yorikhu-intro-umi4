@@ -1,0 +1,228 @@
+@m-01: #545454;
+
+.login-form {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+
+  &,
+  * {
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+  a {
+    color: #333;
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none;
+    margin: 15px 0;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid @m-01;
+    background-color: @m-01;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #fff;
+      box-shadow: none;
+      border: 1px solid @m-01;
+      background-color: @m-01;
+    }
+
+    // 删除按钮点击后的蓝色光晕
+    &[ant-click-animating-without-extra-node]::after {
+      opacity: 0;
+    }
+
+    &.ghost {
+      background-color: transparent;
+      border-color: #fff;
+    }
+  }
+
+  .form-body {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+
+    input {
+      outline-color: @m-01;
+      background-color: #eee;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+    }
+  }
+
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0 0 0/ 25%), 0 10px 10px rgba(0 0 0 / 20%);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-width: 700px;
+    min-height: 600px;
+
+    .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transition: all 0.6s ease-in-out;
+
+      &.sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+      }
+
+      &.sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+
+    .overlay-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
+      z-index: 100;
+
+      .overlay {
+        background: #68a09b;
+        // background: linear-gradient(to right, #6d7a99, #a5aea9);
+        background: linear-gradient(to right, #7d8caf, #abb4af);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #fff;
+        font-weight: 100;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+    }
+
+    .overlay-panel {
+      display: flex;
+      position: absolute;
+      top: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      height: 100%;
+      width: 50%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    &.right-panel-active {
+      .sign-in-container {
+        transform: translateX(100%);
+      }
+
+      .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+      }
+
+      .overlay-container {
+        transform: translateX(-100%);
+      }
+
+      .overlay {
+        transform: translateX(50%);
+      }
+
+      .overlay-left {
+        transform: translateX(0);
+      }
+
+      .overlay-right {
+        transform: translateX(20%);
+      }
+    }
+
+    .overlay-left {
+      transform: translateX(-20%);
+    }
+
+    .overlay-right {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    @keyframes show {
+      0%,
+      49.99% {
+        opacity: 0;
+        z-index: 1;
+      }
+
+      50%,
+      100% {
+        opacity: 1;
+        z-index: 5;
+      }
+    }
+  }
+}
