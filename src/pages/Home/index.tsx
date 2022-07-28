@@ -1,17 +1,14 @@
-import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
 import styles from './index.less';
 
 const HomePage: React.FC = () => {
   const { name } = useModel('global');
-  console.log(name)
-  
+  console.log(name);
+
   return (
-    <PageContainer ghost>
-      <div className={styles.container}>
-        Home
-      </div>
-    </PageContainer>
+    <div className={styles.home}>
+      <h1>Home Page!</h1>
+    </div>
   );
 };
 

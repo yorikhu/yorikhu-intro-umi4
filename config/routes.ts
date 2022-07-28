@@ -9,16 +9,37 @@ export const routes = [
     component: './Home',
   },
   {
+    name: '错误页面',
+    path: '/error',
+    routes: [
+      {
+        name: '403',
+        path: '/error/403',
+        component: './error/PermissionDenied',
+      },
+      {
+        name: '404',
+        path: '/error/404',
+        component: './error/NotFound',
+      },
+      {
+        name: '500',
+        path: '/error/500',
+        component: './error/ServerError',
+      },
+    ],
+  },
+  {
     path: '/403',
-    component: './Error/PermissionDenied',
+    component: './error/PermissionDenied',
   },
   {
     path: '/404',
-    component: './Error/NotFound',
+    component: './error/NotFound',
   },
   {
     path: '/500',
-    component: './Error/ServerError',
+    component: './error/ServerError',
   },
   {
     path: '*',
