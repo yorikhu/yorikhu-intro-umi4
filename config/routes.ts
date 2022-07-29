@@ -7,6 +7,7 @@ export const routes = [
     name: '首页',
     path: '/home',
     component: './Home',
+    access: 'canSeeUser',
   },
   {
     name: '登陆',
@@ -16,37 +17,16 @@ export const routes = [
     hideInMenu: true,
   },
   {
-    name: '错误页面',
-    path: '/error',
-    routes: [
-      {
-        name: '403',
-        path: '/error/403',
-        component: './error/PermissionDenied',
-      },
-      {
-        name: '404',
-        path: '/error/404',
-        component: './error/NotFound',
-      },
-      {
-        name: '500',
-        path: '/error/500',
-        component: './error/ServerError',
-      },
-    ],
-  },
-  {
     path: '/403',
-    component: './error/PermissionDenied',
+    component: '@/components/error/PermissionDenied',
   },
   {
     path: '/404',
-    component: './error/NotFound',
+    component: '@/components/error/NotFound',
   },
   {
     path: '/500',
-    component: './error/ServerError',
+    component: '@/components/error/ServerError',
   },
   {
     path: '*',
