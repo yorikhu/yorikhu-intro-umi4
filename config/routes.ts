@@ -7,7 +7,6 @@ export const routes = [
     name: '首页',
     path: '/home',
     component: './Home',
-    access: 'canSeeUser',
   },
   {
     name: '登陆',
