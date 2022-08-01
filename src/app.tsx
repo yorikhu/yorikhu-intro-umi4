@@ -1,7 +1,8 @@
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
-import { HeaderProps } from '@ant-design/pro-components';
+import { HeaderProps } from '@ant-design/pro-layout';
 import NotFound from './components/error/NotFound';
 import PermissionDenied from './components/error/PermissionDenied';
+import RightContentRender from './components/RightContentRender';
 import { AuthType } from './constants';
 
 export async function getInitialState(): Promise<User.LoginResult> {
@@ -22,8 +23,8 @@ export const layout = () => {
     noAccessible: <PermissionDenied />,
     // 自定义 404 页面
     notFound: <NotFound />,
-    rightContentRender: (props: HeaderProps) => {
-      return <div>{props.headerTheme}</div>;
+    rightContentRender: (initialState: HeaderProps) => {
+      return <RightContentRender initialState={initialState} />;
     },
   };
 };
