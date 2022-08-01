@@ -1,0 +1,42 @@
+.contain {
+  display: flex;
+  height: 100%;
+  padding-right: 48px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    color: #f56a00;
+    background-color: #fde3cf;
+  }
+}
+
+.nav-menu {
+  color: #8590a6;
+  user-select: none;
+
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f7f7f7;
+    }
+
+    .text {
+      padding-left: 6px;
+    }
+  }
+}
