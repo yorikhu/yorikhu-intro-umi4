@@ -25,17 +25,17 @@ const RightContentRender: React.FC<Props> = () => {
       {
         name: '我的主页',
         icon: <HomeFilled />,
-        url: '/home',
+        url: '/user',
       },
       {
         name: '通知',
         icon: <BellFilled />,
-        url: '/home',
+        url: '/notification',
       },
       {
         name: '设置',
         icon: <SettingFilled />,
-        url: '/home',
+        url: '/setting',
       },
       {
         name: '退出',
