@@ -17,6 +17,7 @@ export const layout = () => {
       locale: false,
     },
     layout: 'top',
+    onMenuHeaderClick: null,
     // 自定义 403 页面
     noAccessible: <PermissionDenied />,
     // 自定义 404 页面
