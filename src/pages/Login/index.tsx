@@ -10,7 +10,7 @@ const Login: React.FC = () => {
       {/* 利用 antd 受控表单逻辑（表单不展示） */}
       <div className={styles['antd-form-container']}>
         <h1>注册账号</h1>
-        <Form name="createUser" autoComplete="off">
+        <Form name="signUp" autoComplete="off">
           <Form.Item
             label="用户名"
             name="username"
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
         <h1>账号登陆</h1>
-        <Form name="createUser" autoComplete="off">
+        <Form name="signIn" autoComplete="off">
           <Form.Item
             label="用户名"
             name="username"
