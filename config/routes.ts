@@ -9,16 +9,23 @@ export const routes = [
     component: './Home',
   },
   {
+    name: '登陆',
+    path: '/login',
+    component: './Login',
+    headerRender: false,
+    hideInMenu: true,
+  },
+  {
     path: '/403',
-    component: './Error/PermissionDenied',
+    component: '@/components/error/PermissionDenied',
   },
   {
     path: '/404',
-    component: './Error/NotFound',
+    component: '@/components/error/NotFound',
   },
   {
     path: '/500',
-    component: './Error/ServerError',
+    component: '@/components/error/ServerError',
   },
   {
     path: '*',

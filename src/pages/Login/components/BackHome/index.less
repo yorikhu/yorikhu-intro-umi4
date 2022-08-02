@@ -1,0 +1,40 @@
+.back-home {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 24px;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.94);
+  }
+
+  .back-arrow {
+    transform: translateX(6px);
+    font-size: 24px;
+    animation: arrow-back 2s infinite ease-in;
+  }
+
+  @keyframes arrow-back {
+    50% {
+      transform: translateX(-3px);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateX(6px);
+      opacity: 1;
+    }
+  }
+
+  p {
+    height: 40px;
+    padding-left: 12px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+  }
+}

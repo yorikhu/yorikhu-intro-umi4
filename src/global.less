@@ -1,3 +1,25 @@
+html,
+body,
+#root,
+#root > .ant-design-pro {
+  height: 100%;
+}
+
 .ant-layout-header.ant-pro-fixed-header {
-  background: rgba(200 200 200/ 5%) !important;
+  background: #fcfcfc00 !important;
+  user-select: none;
+}
+
+.ant-pro-top-nav-header-logo {
+  a {
+    cursor: default;
+  }
+}
+
+.ant-layout-content {
+  min-height: calc(100vh - 56px);
+}
+
+.ant-popover-inner-content {
+  padding: 0;
 }
