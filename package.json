@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author":"inkroll <13003682137@163.com>",
+  "author":"yorikhu <13003682137@163.com>",
   "scripts": {
     "dev": "max dev",
     "build": "max build",
