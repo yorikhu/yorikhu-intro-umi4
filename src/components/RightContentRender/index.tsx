@@ -65,7 +65,12 @@ const RightContentRender: React.FC<Props> = () => {
 
   return (
     <div className={styles['contain']}>
-      <Popover placement="bottom" content={<NavMenu />} trigger="click">
+      <Popover
+        overlayClassName={styles['popover']}
+        placement="bottom"
+        content={<NavMenu />}
+        trigger="click"
+      >
         <Avatar className={styles['avatar']} size={40}>
           {getFirstCharacter(name)}
         </Avatar>
