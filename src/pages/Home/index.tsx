@@ -70,7 +70,7 @@ const HomePage: React.FC = () => {
             className={styles['codepic']}
             style={{ display: ifShowCodepic ? 'block' : 'none' }}
           >
-            <img src={require('@/assets/codepic.png')} />
+            <img src={require('@/assets/codepic.jpeg')} />
           </div>
           <div className={styles['bubbles-list']}>
             <div
@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
               onMouseEnter={() => changeTipDisplay('github')}
               onMouseLeave={() => clearTipDisplay()}
               onClick={() =>
-                window.open('https://github.com/inkroll', '_blank')
+                window.open('https://github.com/yorikhu', '_blank')
               }
               className={classNames(styles['bubble'], styles['github'])}
             >
@@ -100,7 +100,7 @@ const HomePage: React.FC = () => {
               onMouseEnter={() => changeTipDisplay('zhihu')}
               onMouseLeave={() => clearTipDisplay()}
               onClick={() =>
-                window.open('https://www.zhihu.com/people/inkroll', '_blank')
+                window.open('https://www.zhihu.com/people/yorikhu', '_blank')
               }
               className={classNames(styles['bubble'], styles['zhihu'])}
             >

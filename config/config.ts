@@ -8,7 +8,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: 'inkroll',
+    title: 'Yorikhu',
     locale: false,
   },
   routes: routes,
