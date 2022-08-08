@@ -1,9 +1,16 @@
-import { Button } from 'antd';
+import { Button, FormInstance } from 'antd';
 import classNames from 'classNames';
 import { useState } from 'react';
 import styles from './index.less';
 
-const LoginForm: React.FC = () => {
+type Props = {
+  signInForm: FormInstance<any>;
+  signUpForm: FormInstance<any>;
+};
+
+const LoginForm: React.FC<Props> = (props) => {
+  const { signInForm, signUpForm } = props;
+  console.log(signInForm, signUpForm);
   const [ifRightActive, setIfRightActive] = useState(false);
   return (
     <div className={styles['login-form']}>

@@ -1,16 +1,19 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
 import BackHome from './components/BackHome';
 import LoginForm from './components/LoginForm';
 import styles from './index.less';
 
 const Login: React.FC = () => {
+  const [signInForm] = Form.useForm();
+  const [signUpForm] = Form.useForm();
+
   return (
     <div className={styles['login']}>
       {/* 利用 antd 受控表单逻辑（表单不展示） */}
       <div className={styles['antd-form-container']}>
         <h1>注册账号</h1>
-        <Form name="signUp" autoComplete="off">
+        <Form form={signUpForm} name="signUp" autoComplete="off">
           <Form.Item
             label="用户名"
             name="username"
@@ -39,14 +42,7 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
         <h1>账号登陆</h1>
-        <Form name="signIn" autoComplete="off">
-          <Form.Item
-            label="用户名"
-            name="username"
-            rules={[{ required: true, message: '请输入用户名!' }]}
-          >
-            <Input />
-          </Form.Item>
+        <Form form={signInForm} name="signIn" autoComplete="off">
           <Form.Item
             label="邮箱"
             name="email"
@@ -61,9 +57,6 @@ const Login: React.FC = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>记住我</Checkbox>
-          </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
               登陆
@@ -73,7 +66,7 @@ const Login: React.FC = () => {
       </div>
       {/* 表单主体 */}
       <div className={styles['main-form-container']}>
-        <LoginForm />
+        <LoginForm signInForm={signInForm} signUpForm={signUpForm} />
       </div>
       {/* 返回主页 */}
       <div className={styles['back-home']}>
