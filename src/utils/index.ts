@@ -1,0 +1,1 @@
+export { implementDebounce } from './implementDebounce';

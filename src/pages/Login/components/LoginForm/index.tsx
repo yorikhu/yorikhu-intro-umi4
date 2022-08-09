@@ -1,4 +1,6 @@
+import { implementDebounce } from '@/utils';
 import { Button, FormInstance } from 'antd';
+import { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classNames';
 import { useState } from 'react';
 import styles from './index.less';
@@ -10,8 +12,18 @@ type Props = {
 
 const LoginForm: React.FC<Props> = (props) => {
   const { signInForm, signUpForm } = props;
-  console.log(signInForm, signUpForm);
   const [ifRightActive, setIfRightActive] = useState(false);
+
+  const setFormValue = (
+    form: FormInstance<any>,
+    name: NamePath,
+    value: string,
+  ) => {
+    form.setFieldValue(name, value);
+  };
+
+  const debounceSetFormValue = implementDebounce(setFormValue, 100);
+
   return (
     <div className={styles['login-form']}>
       <div
@@ -27,11 +39,29 @@ const LoginForm: React.FC<Props> = (props) => {
         >
           <div className={styles['form-body']}>
             <h1>创建账号</h1>
-            <input type="text" placeholder="用户名" />
-            <input type="email" placeholder="邮箱" />
-            <input type="password" placeholder="密码" />
+            <input
+              onChange={(e) => {
+                debounceSetFormValue(signUpForm, 'username', e.target.value);
+              }}
+              type="text"
+              placeholder="用户名"
+            />
+            <input
+              onChange={(e) => {
+                debounceSetFormValue(signUpForm, 'email', e.target.value);
+              }}
+              type="email"
+              placeholder="邮箱"
+            />
+            <input
+              onChange={(e) => {
+                debounceSetFormValue(signUpForm, 'password', e.target.value);
+              }}
+              type="password"
+              placeholder="密码"
+            />
             <a>想多了解一下这里?</a>
-            <Button>注册</Button>
+            <Button onClick={() => signUpForm.submit()}>注册</Button>
           </div>
         </div>
         <div
@@ -42,10 +72,22 @@ const LoginForm: React.FC<Props> = (props) => {
         >
           <div className={styles['form-body']}>
             <h1>登陆</h1>
-            <input type="email" placeholder="邮箱" />
-            <input type="password" placeholder="密码" />
+            <input
+              onChange={(e) => {
+                debounceSetFormValue(signInForm, 'email', e.target.value);
+              }}
+              type="email"
+              placeholder="邮箱"
+            />
+            <input
+              onChange={(e) => {
+                debounceSetFormValue(signInForm, 'password', e.target.value);
+              }}
+              type="password"
+              placeholder="密码"
+            />
             <a>忘记了你的密码?</a>
-            <Button>登陆</Button>
+            <Button onClick={() => signInForm.submit()}>登陆</Button>
           </div>
         </div>
         <div className={styles['overlay-container']}>

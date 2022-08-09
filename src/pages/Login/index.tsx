@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import React from 'react';
 import BackHome from './components/BackHome';
 import LoginForm from './components/LoginForm';
@@ -8,31 +8,50 @@ const Login: React.FC = () => {
   const [signInForm] = Form.useForm();
   const [signUpForm] = Form.useForm();
 
+  type formDataType = {
+    username?: string;
+    email?: string;
+    password?: string;
+  };
+
+  const validateNotice = (values: formDataType) => {
+    let key: keyof formDataType;
+    let ifNeedNotice = false;
+    for (key in values) {
+      if (!values[key]) ifNeedNotice = true;
+    }
+    if (ifNeedNotice) message.error('哎呀！所有信息都要填写呢 ฅʕ•̫͡•ʔฅ ~');
+    return ifNeedNotice;
+  };
+
+  const signInFinish = (values: formDataType) => {
+    if (validateNotice(values)) return;
+    console.log(values);
+  };
+
+  const signUpFinish = (values: formDataType) => {
+    if (validateNotice(values)) return;
+    console.log(values);
+  };
+
   return (
     <div className={styles['login']}>
       {/* 利用 antd 受控表单逻辑（表单不展示） */}
       <div className={styles['antd-form-container']}>
         <h1>注册账号</h1>
-        <Form form={signUpForm} name="signUp" autoComplete="off">
-          <Form.Item
-            label="用户名"
-            name="username"
-            rules={[{ required: true, message: '请输入用户名!' }]}
-          >
+        <Form
+          form={signUpForm}
+          onFinish={signUpFinish}
+          name="signUp"
+          autoComplete="off"
+        >
+          <Form.Item label="用户名" name="username">
             <Input />
           </Form.Item>
-          <Form.Item
-            label="邮箱"
-            name="email"
-            rules={[{ required: true, message: '请输入邮箱!' }]}
-          >
+          <Form.Item label="邮箱" name="email">
             <Input />
           </Form.Item>
-          <Form.Item
-            label="密码"
-            name="password"
-            rules={[{ required: true, message: '请输入密码!' }]}
-          >
+          <Form.Item label="密码" name="password">
             <Input />
           </Form.Item>
           <Form.Item>
@@ -42,19 +61,16 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
         <h1>账号登陆</h1>
-        <Form form={signInForm} name="signIn" autoComplete="off">
-          <Form.Item
-            label="邮箱"
-            name="email"
-            rules={[{ required: true, message: '请输入邮箱!' }]}
-          >
+        <Form
+          form={signInForm}
+          onFinish={signInFinish}
+          name="signIn"
+          autoComplete="off"
+        >
+          <Form.Item label="邮箱" name="email">
             <Input />
           </Form.Item>
-          <Form.Item
-            label="密码"
-            name="password"
-            rules={[{ required: true, message: '请输入密码!' }]}
-          >
+          <Form.Item label="密码" name="password">
             <Input />
           </Form.Item>
           <Form.Item>
