@@ -1,4 +1,5 @@
 import { defineConfig } from '@umijs/max';
+import { chainWebpack } from './gzip.config';
 import { routes } from './routes';
 
 export default defineConfig({
@@ -13,4 +14,5 @@ export default defineConfig({
   },
   routes: routes,
   npmClient: 'yarn',
+  chainWebpack: chainWebpack,
 });
