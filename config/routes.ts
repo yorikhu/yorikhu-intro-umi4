@@ -1,11 +1,7 @@
 export const routes = [
   {
-    path: '/',
-    redirect: '/home',
-  },
-  {
     name: '首页',
-    path: '/home',
+    path: '/',
     component: './Home',
   },
   {
