@@ -72,7 +72,9 @@ const HomePage: React.FC = () => {
             className={styles.bg}
             src={require('@/assets/banner.jpg')}
             onLoad={() => {
-              setLoadingList({ ...loadingList, bgOnLoad: true });
+              setLoadingList((pro) => {
+                return { ...pro, bgOnLoad: true };
+              });
             }}
           />
           <div className={styles['owner-desc']}>
@@ -80,7 +82,9 @@ const HomePage: React.FC = () => {
               <img
                 src={require('@/assets/avatar.jpg')}
                 onLoad={() => {
-                  setLoadingList({ ...loadingList, avatarOnLoad: true });
+                  setLoadingList((pro) => {
+                    return { ...pro, avatarOnLoad: true };
+                  });
                 }}
               />
             </div>
