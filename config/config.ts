@@ -1,4 +1,5 @@
 import { defineConfig } from '@umijs/max';
+import { chainWebpack } from './gzip.config';
 import { routes } from './routes';
 
 export default defineConfig({
@@ -8,9 +9,10 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: 'inkroll',
+    title: 'Yorikhu',
     locale: false,
   },
   routes: routes,
   npmClient: 'yarn',
+  chainWebpack: chainWebpack,
 });
