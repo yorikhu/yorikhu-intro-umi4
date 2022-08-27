@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Loading from '@/components/Loading';
 import { OWNER_NICK_CH_NAME, OWNER_NICK_EN_NAME } from '@/constants';
 import {
@@ -146,6 +147,7 @@ const HomePage: React.FC = () => {
               <p className={styles['text-en']}>{tipText?.en}</p>
             </div>
           </div>
+          <Footer type="index" />
         </main>
       </Loading>
     </div>

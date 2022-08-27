@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import { Button, Form, Input, message } from 'antd';
 import React from 'react';
 import BackHome from './components/BackHome';
@@ -88,6 +89,7 @@ const Login: React.FC = () => {
       <div className={styles['back-home']}>
         <BackHome />
       </div>
+      <Footer type="login" />
     </div>
   );
 };
