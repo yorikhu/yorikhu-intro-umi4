@@ -10,14 +10,14 @@ const Footer: React.FC<Props> = (props) => {
 
   return (
     <div className={classNames(styles.footer, styles[type])}>
-      {/* <a
+      <a
         className={styles.icp}
-        href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=xxxxxxxxxxxxxx&token=da019b73-d30c-40f3-a520-01cc28d36e55"
+        href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010202002367&token=da019b73-d30c-40f3-a520-01cc28d36e55"
       >
-        浙公网安备 xxxxxxxxxxxxxx号
-      </a> */}
+        浙公网安备 33010202002367号
+      </a>
       <a className={styles.icp} href="https://beian.miit.gov.cn">
-        浙ICP备2022024831号-1
+        浙ICP备2022024831号
       </a>
       <p className={styles.copyright}>Copyright ©2022 Yorikhu</p>
     </div>

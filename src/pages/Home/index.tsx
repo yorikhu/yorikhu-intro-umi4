@@ -5,7 +5,6 @@ import {
   GithubOutlined,
   QuestionCircleOutlined,
   WechatOutlined,
-  ZhihuOutlined,
 } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import classNames from 'classNames';
@@ -23,7 +22,7 @@ const HomePage: React.FC = () => {
     en: string;
   };
 
-  const tipTuple = ['wechat', 'github', 'zhihu', 'more'] as const;
+  const tipTuple = ['wechat', 'github', 'more'] as const;
 
   type tipTextMapType = {
     [key in typeof tipTuple[number]]: tipTextType;
@@ -37,10 +36,6 @@ const HomePage: React.FC = () => {
     github: {
       ch: 'Github',
       en: '',
-    },
-    zhihu: {
-      ch: '知乎',
-      en: 'zhihu',
     },
     more: {
       ch: '了解更多',
@@ -122,16 +117,6 @@ const HomePage: React.FC = () => {
                 className={classNames(styles['bubble'], styles['github'])}
               >
                 <GithubOutlined />
-              </div>
-              <div
-                onMouseEnter={() => changeTipDisplay('zhihu')}
-                onMouseLeave={() => clearTipDisplay()}
-                onClick={() =>
-                  window.open('https://www.zhihu.com/people/yorikhu', '_blank')
-                }
-                className={classNames(styles['bubble'], styles['zhihu'])}
-              >
-                <ZhihuOutlined />
               </div>
               <div
                 onMouseEnter={() => changeTipDisplay('more')}
