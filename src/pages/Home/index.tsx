@@ -5,6 +5,7 @@ import {
   GithubOutlined,
   QuestionCircleOutlined,
   WechatOutlined,
+  YuqueOutlined,
 } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import classNames from 'classNames';
@@ -22,7 +23,7 @@ const HomePage: React.FC = () => {
     en: string;
   };
 
-  const tipTuple = ['wechat', 'github', 'more'] as const;
+  const tipTuple = ['wechat', 'github', 'juejin', 'more'] as const;
 
   type tipTextMapType = {
     [key in typeof tipTuple[number]]: tipTextType;
@@ -31,15 +32,19 @@ const HomePage: React.FC = () => {
   const tipTextMap: tipTextMapType = {
     wechat: {
       ch: '微信',
-      en: 'wechat',
+      en: 'Wechat',
     },
     github: {
       ch: 'Github',
       en: '',
     },
+    juejin: {
+      ch: '语雀',
+      en: 'Yuque',
+    },
     more: {
       ch: '了解更多',
-      en: 'know more',
+      en: 'Know More',
     },
   };
 
@@ -117,6 +122,16 @@ const HomePage: React.FC = () => {
                 className={classNames(styles['bubble'], styles['github'])}
               >
                 <GithubOutlined />
+              </div>
+              <div
+                onMouseEnter={() => changeTipDisplay('juejin')}
+                onMouseLeave={() => clearTipDisplay()}
+                onClick={() =>
+                  window.open('https://www.yuque.com/yorikhu', '_blank')
+                }
+                className={classNames(styles['bubble'], styles['yuque'])}
+              >
+                <YuqueOutlined />
               </div>
               <div
                 onMouseEnter={() => changeTipDisplay('more')}

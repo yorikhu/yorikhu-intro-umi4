@@ -7,10 +7,14 @@
     margin-top: -56px;
     width: 100vw;
     height: 100vh;
+    min-width: 750px;
+    min-height: 800px;
 
     .bg {
       width: 100vw;
+      min-width: 750px;
       height: 100vh;
+      min-height: 800px;
       object-fit: cover;
     }
 
@@ -109,9 +113,21 @@
             color: #670167;
           }
         }
+
+        .bubble:nth-child(3) {
+          animation-delay: 0.5s;
+
+          &.yuque:hover {
+            color: #57ac6e;
+          }
+        }
+
+        &.juejin:hover .logo {
+          background: url('/src/assets/icon/juejin-active.svg');
+        }
       }
 
-      .bubble:nth-child(3) {
+      .bubble:nth-child(4) {
         animation-delay: 0.4s;
 
         &.more:hover {
