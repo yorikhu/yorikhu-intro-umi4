@@ -5,7 +5,7 @@ import {
   GithubOutlined,
   QuestionCircleOutlined,
   WechatOutlined,
-  YuqueOutlined,
+  YuqueFilled,
 } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import classNames from 'classNames';
@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
                 }
                 className={classNames(styles['bubble'], styles['yuque'])}
               >
-                <YuqueOutlined />
+                <YuqueFilled />
               </div>
               <div
                 onMouseEnter={() => changeTipDisplay('more')}
