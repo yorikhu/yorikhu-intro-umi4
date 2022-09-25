@@ -9,7 +9,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '尤里克知识库',
+    title: 'Yorikhu',
     locale: false,
   },
   routes: routes,
