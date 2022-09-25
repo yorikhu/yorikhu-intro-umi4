@@ -1,10 +1,11 @@
+import Footer from '@/components/Footer';
 import Loading from '@/components/Loading';
 import { OWNER_NICK_CH_NAME, OWNER_NICK_EN_NAME } from '@/constants';
 import {
   GithubOutlined,
   QuestionCircleOutlined,
   WechatOutlined,
-  ZhihuOutlined,
+  YuqueFilled,
 } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import classNames from 'classNames';
@@ -22,7 +23,7 @@ const HomePage: React.FC = () => {
     en: string;
   };
 
-  const tipTuple = ['wechat', 'github', 'zhihu', 'more'] as const;
+  const tipTuple = ['wechat', 'github', 'juejin', 'more'] as const;
 
   type tipTextMapType = {
     [key in typeof tipTuple[number]]: tipTextType;
@@ -31,19 +32,19 @@ const HomePage: React.FC = () => {
   const tipTextMap: tipTextMapType = {
     wechat: {
       ch: '微信',
-      en: 'wechat',
+      en: 'Wechat',
     },
     github: {
       ch: 'Github',
       en: '',
     },
-    zhihu: {
-      ch: '知乎',
-      en: 'zhihu',
+    juejin: {
+      ch: '语雀',
+      en: 'Yuque',
     },
     more: {
       ch: '了解更多',
-      en: 'know more',
+      en: 'Know More',
     },
   };
 
@@ -123,14 +124,14 @@ const HomePage: React.FC = () => {
                 <GithubOutlined />
               </div>
               <div
-                onMouseEnter={() => changeTipDisplay('zhihu')}
+                onMouseEnter={() => changeTipDisplay('juejin')}
                 onMouseLeave={() => clearTipDisplay()}
                 onClick={() =>
-                  window.open('https://www.zhihu.com/people/yorikhu', '_blank')
+                  window.open('https://www.yuque.com/yorikhu', '_blank')
                 }
-                className={classNames(styles['bubble'], styles['zhihu'])}
+                className={classNames(styles['bubble'], styles['yuque'])}
               >
-                <ZhihuOutlined />
+                <YuqueFilled />
               </div>
               <div
                 onMouseEnter={() => changeTipDisplay('more')}
@@ -146,6 +147,7 @@ const HomePage: React.FC = () => {
               <p className={styles['text-en']}>{tipText?.en}</p>
             </div>
           </div>
+          <Footer type="index" />
         </main>
       </Loading>
     </div>
